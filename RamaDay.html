@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #fff;
+            font-family: Georgia, serif;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            max-width: 760px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 0 30px rgba(255,255,255,.06);
+        }
+
+        img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 20px;
+            line-height: 1.9;
+            color: #ddd;
+            min-height: 120px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 12px;
+            background: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="mark-lee.jpg">
+
+        <h1 id="title"></h1>
+        <p id="text"></p>
+
+        <audio controls autoplay loop>
+            <source src="glue-song.mp4">
+        </audio>
+
+        <div class="controls">
+            <button onclick="prevPage()">Prev</button>
+            <button onclick="nextPage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const pages = [
+            { title: 'for u', text: 'MASS CELLLL, SELAMAT ULANG TAHUNNN!!!🖤' },
+            { title: 'a wish', text: 'cimit harap semua hal baik selalu sama mas, semua keiningan mas di berikan kemudahan selalu, makin sayang sama mamah sama cimitt. mit bangga banget mamah udah ngelahirin laki laki hebat kaya mas cel' },
+            { title: 'your day', text: 'tertawa lebih banyak, istirahat yang cukup, dan bahagia selalu. hati hati untuk kegiatannya di hari ini' },
+            { title: 'happy birthday', text: 'thank you for being here. ketemu mas itu bagaikan nemu setetes air di gurun pasir, jangan bosen buat terus baik sama orang orang ya mas.' }
+        ];
+
+        let page = 0;
+
+        function render() {
+            document.getElementById('title').innerText = pages[page].title;
+            document.getElementById('text').innerText = pages[page].text;
+        }
+
+        function nextPage() {
+            if (page < pages.length - 1) {
+                page++;
+                render();
+            }
+        }
+
+        function prevPage() {
+            if (page > 0) {
+                page--;
+                render();
+            }
+        }
+
+        render();
+    </script>
+</body>
+</html>
